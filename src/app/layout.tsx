@@ -6,18 +6,13 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
   title: "আচার ঘর | Authentic Achar & Burmese Food",
-  description:
-    "Authentic achar, Burmese pickles and local food products from Cox's Bazar. Order online with Cash on Delivery.",
+  description: "Authentic achar, Burmese pickles and local food products from Cox's Bazar. Order online with Cash on Delivery.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col bg-earth-50 font-body">
+      <body className="min-h-screen flex flex-col bg-milk-200 font-body">
         <Navbar />
         <CartDrawer />
         <main className="flex-1">{children}</main>

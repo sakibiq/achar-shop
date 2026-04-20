@@ -9,34 +9,53 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          50:  "#fff8f0",
-          100: "#ffecd6",
-          200: "#ffd4a8",
-          300: "#ffb470",
-          400: "#ff8c38",
-          500: "#f97316",
-          600: "#ea6010",
-          700: "#c24b0c",
-          800: "#9a3d12",
-          900: "#7c3412",
+        // Cyprus — deep teal (primary brand color)
+        cyprus: {
+          50:  "#e6f2f1",
+          100: "#b3d9d6",
+          200: "#80c0bb",
+          300: "#4da7a1",
+          400: "#268e87",
+          500: "#004643",  // base cyprus
+          600: "#003d3a",
+          700: "#003330",
+          800: "#002a27",
+          900: "#001a18",
         },
-        earth: {
-          50:  "#fdf8f3",
-          100: "#f5e6d3",
-          200: "#e8c9a0",
-          300: "#d4a574",
-          400: "#b8834e",
-          500: "#96652e",
-          600: "#7a5126",
-          700: "#5d3d1e",
-          800: "#3d2810",
-          900: "#1e1408",
+        // Milk — warm cream (background color)
+        milk: {
+          50:  "#ffffff",
+          100: "#fff9f2",
+          200: "#fff3e6",  // base milk
+          300: "#ffe8cc",
+          400: "#ffdbb0",
+          500: "#ffcb8e",
+          600: "#f0a84e",
+          700: "#c47d20",
+          800: "#8a5510",
+          900: "#4a2c05",
+        },
+        // Accent — warm amber for CTAs and highlights
+        accent: {
+          50:  "#fffbeb",
+          100: "#fef3c7",
+          200: "#fde68a",
+          300: "#fcd34d",
+          400: "#fbbf24",
+          500: "#f59e0b",
+          600: "#d97706",
+          700: "#b45309",
+          800: "#92400e",
+          900: "#78350f",
         },
       },
       fontFamily: {
-        display: ["Georgia", "Cambria", "serif"],
-        body: ["system-ui", "sans-serif"],
+        display: ["Georgia", "Cambria", "'Times New Roman'", "serif"],
+        body: ["'Segoe UI'", "system-ui", "sans-serif"],
+      },
+      boxShadow: {
+        "cyprus": "0 4px 24px rgba(0,70,67,0.15)",
+        "cyprus-lg": "0 8px 40px rgba(0,70,67,0.2)",
       },
     },
   },

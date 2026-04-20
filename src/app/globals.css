@@ -3,38 +3,46 @@
 @tailwind utilities;
 
 :root {
-  --brand-orange: #f97316;
-  --brand-dark: #3d2810;
-  --brand-cream: #fdf8f3;
+  --cyprus: #004643;
+  --cyprus-light: #006b66;
+  --milk: #fff3e6;
+  --milk-dark: #ffe8cc;
+  --accent: #f59e0b;
+  --text-dark: #001a18;
+  --text-mid: #2d5a57;
+  --text-soft: #6b9e9b;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
-  background-color: var(--brand-cream);
-  color: var(--brand-dark);
+  background-color: var(--milk);
+  color: var(--text-dark);
+  font-family: 'Segoe UI', system-ui, sans-serif;
 }
+
+/* Hide scrollbar for filter tabs */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
 @layer components {
   .btn-primary {
-    @apply bg-brand-500 hover:bg-brand-600 text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 active:scale-95;
+    @apply bg-cyprus-500 hover:bg-cyprus-600 text-milk-200 font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 active:scale-95 shadow-cyprus;
   }
   .btn-outline {
-    @apply border-2 border-brand-500 text-brand-600 hover:bg-brand-50 font-semibold px-5 py-2.5 rounded-xl transition-all duration-200;
+    @apply border-2 border-cyprus-500 text-cyprus-500 hover:bg-cyprus-50 font-semibold px-5 py-2.5 rounded-xl transition-all duration-200;
+  }
+  .btn-accent {
+    @apply bg-accent-500 hover:bg-accent-600 text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 active:scale-95;
   }
   .card {
-    @apply bg-white rounded-2xl shadow-sm border border-earth-100 overflow-hidden;
+    @apply bg-white rounded-2xl shadow-sm border border-milk-300 overflow-hidden;
   }
   .input-field {
-    @apply w-full border border-earth-200 rounded-xl px-4 py-3 text-earth-800 bg-white focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent placeholder:text-earth-300 transition-all;
+    @apply w-full border border-milk-400 rounded-xl px-4 py-3 text-cyprus-800 bg-white focus:outline-none focus:ring-2 focus:ring-cyprus-400 focus:border-transparent placeholder:text-cyprus-200 transition-all;
   }
   .section-title {
-    @apply font-display text-2xl md:text-3xl text-earth-800 font-bold;
+    @apply font-display text-2xl md:text-3xl text-cyprus-500 font-bold;
   }
 }

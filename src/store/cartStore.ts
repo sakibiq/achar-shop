@@ -27,54 +27,25 @@ export const useCartStore = create<CartStore>()(
     (set, get) => ({
       items: [],
       isCartOpen: false,
-
-      addItem: (product: Product) => {
+      addItem: (product) => {
         const existing = get().items.find((i) => i.product.id === product.id);
         if (existing) {
-          set({
-            items: get().items.map((i) =>
-              i.product.id === product.id
-                ? { ...i, quantity: i.quantity + 1 }
-                : i
-            ),
-          });
+          set({ items: get().items.map((i) => i.product.id === product.id ? { ...i, quantity: i.quantity + 1 } : i) });
         } else {
           set({ items: [...get().items, { product, quantity: 1 }] });
         }
       },
-
-      removeItem: (productId: string) => {
-        set({ items: get().items.filter((i) => i.product.id !== productId) });
+      removeItem: (productId) => set({ items: get().items.filter((i) => i.product.id !== productId) }),
+      updateQuantity: (productId, quantity) => {
+        if (quantity <= 0) { get().removeItem(productId); return; }
+        set({ items: get().items.map((i) => i.product.id === productId ? { ...i, quantity } : i) });
       },
-
-      updateQuantity: (productId: string, quantity: number) => {
-        if (quantity <= 0) {
-          get().removeItem(productId);
-          return;
-        }
-        set({
-          items: get().items.map((i) =>
-            i.product.id === productId ? { ...i, quantity } : i
-          ),
-        });
-      },
-
       clearCart: () => set({ items: [] }),
-
       openCart: () => set({ isCartOpen: true }),
       closeCart: () => set({ isCartOpen: false }),
-
-      getTotal: () =>
-        get().items.reduce(
-          (sum, item) => sum + item.product.price * item.quantity,
-          0
-        ),
-
-      getCount: () =>
-        get().items.reduce((sum, item) => sum + item.quantity, 0),
+      getTotal: () => get().items.reduce((sum, item) => sum + item.product.price * item.quantity, 0),
+      getCount: () => get().items.reduce((sum, item) => sum + item.quantity, 0),
     }),
-    {
-      name: "achar-cart",
-    }
+    { name: "achar-cart" }
   )
 );
